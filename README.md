@@ -1,2 +1,2 @@
-# computer-infrastructure-assessment
+# Computer Infrastructure Assessment
 Assessment for Computer Infrastructure Module
