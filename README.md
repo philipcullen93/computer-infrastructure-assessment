@@ -29,3 +29,13 @@ Create a Python script called faang.py in the root of your repository. Copy the 
 
 ### Problem 4: Automation
 Create a GitHub Actions workflow to run your script every Saturday morning. The script should be called faang.yml in a .github/workflows/ folder in the root of your repository. In your notebook, explain each of the individual lines in your workflow.
+
+## Concepts and Background Knowledge Required
+This section discusses the background information, concepts and knowledge that is required for solving the problems. 
+
+### Problem 1:
+#### Basic Python Skills
+#### yfinance
+#### pandas/dataframes
+#### Working with Dates and Times
+
