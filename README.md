@@ -36,6 +36,8 @@ This section discusses the background information, concepts and knowledge that i
 ### Problem 1:
 #### Basic Python Skills
 #### yfinance
-#### pandas/dataframes
+YFinance is a Python Library which allows access to financial data from Yahoo Finance. It can be used to download stock and company financial statements. Features of yfiancne include: Historical Market Financial Data, Corporate Actions, Financial Statements, Meta Data, and Multiple Tickers. [1, https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library]
+It can be installed using _pip install yfinance_.
+#### pandas/dataframe
 #### Working with Dates and Times
 
