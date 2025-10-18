@@ -42,3 +42,8 @@ It can be installed using _pip install yfinance_.
 #### pandas/dataframe
 #### Working with Dates and Times
 
+## Solving Problems
+All solutions, code etc. can be found in the Jupyter Notebook [problems.ipynb](https://github.com/philipcullen93/computer-infrastructure-assessment/blob/main/problems.ipynb)
+
+### Problem 1:
+- 
