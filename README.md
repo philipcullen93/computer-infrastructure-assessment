@@ -46,4 +46,7 @@ It can be installed using _pip install yfinance_.
 All solutions, code etc. can be found in the Jupyter Notebook [problems.ipynb](https://github.com/philipcullen93/computer-infrastructure-assessment/blob/main/problems.ipynb)
 
 ### Problem 1:
-- 
+Breaking the problem down into steps, here is what I decided were the key objectives for what I needed my code to do.
+1. Download hourly data for the previous 5 days for META, AAPL, AMZN, NFLX, and GOOG.
+2. If missing, create a data folder.
+3. Save a timestamped CSV file in the format YYYYMMDD-HHmmss.csv
