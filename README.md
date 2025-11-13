@@ -30,8 +30,8 @@ Create a Python script called faang.py in the root of your repository. Copy the 
 ### Problem 4: Automation
 Create a GitHub Actions workflow to run your script every Saturday morning. The script should be called faang.yml in a .github/workflows/ folder in the root of your repository. In your notebook, explain each of the individual lines in your workflow.
 
-## Concepts and Background Knowledge Required
-This section discusses the background information, concepts and knowledge that is required for solving the problems. 
+## Tools, Python Packages and Background Knowledge Required
+This section discusses the background information, Python Packages and Tools required for solving the problems. 
 
 ### Problem 1:
 #### yfinance
@@ -39,11 +39,14 @@ YFinance is a Python Library which allows access to financial data from Yahoo Fi
 
 It can be installed using _pip install yfinance_.
 
+### Python Packages
 The Python Packages required for Problem 1 and their use is as follows:
-- yfinance is used to access historical financial data directly from Yahoo Finance using its public API.
-- pandas  are used to manipulate and export the downloaded data into a .csv (comma-separated values) file.
-- datetime creates a timestamp for the file. This allows the file to be created with the required YYYYMMDD-HHmmss.csv format.
-- os check the repository to see if the data/ folder exists and create it if necessary.
+- yfinance is used to access historical financial data directly from Yahoo Finance using its public API [2][3].
+- pandas  are used to manipulate and export the downloaded data into a .csv (comma-separated values) file [4].
+- datetime creates a timestamp for the file. This allows the file to be created with the required YYYYMMDD-HHmmss.csv format [5]. 
+- os check the repository to see if the data/ folder exists and create it if necessary [5].
+
+
 
 ## Solving Problems
 All solutions, code etc. can be found in the Jupyter Notebook [problems.ipynb](https://github.com/philipcullen93/computer-infrastructure-assessment/blob/main/problems.ipynb)
@@ -53,3 +56,10 @@ Breaking the problem down into steps, here is what I decided were the key object
 1. Download hourly data for the previous 5 days for META, AAPL, AMZN, NFLX, and GOOG.
 2. If missing, create a data folder.
 3. Save a timestamped CSV file in the format YYYYMMDD-HHmmss.csv
+
+# References
+1 - yFinance Background Information: https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library
+2 - Yahoo Finance (data source): (https://finance.yahoo.com/)
+3 - yfinance Documentation: (https://pypi.org/project/yfinance/)  
+4 - pandas Official Docs: (https://pandas.pydata.org/docs/)  
+5 - Python Standard Library (datetime & os): (https://docs.python.org/3/library/)
