@@ -34,13 +34,16 @@ Create a GitHub Actions workflow to run your script every Saturday morning. The 
 This section discusses the background information, concepts and knowledge that is required for solving the problems. 
 
 ### Problem 1:
-#### Basic Python Skills
 #### yfinance
 YFinance is a Python Library which allows access to financial data from Yahoo Finance. It can be used to download stock and company financial statements. Features of yfiancne include: Historical Market Financial Data, Corporate Actions, Financial Statements, Meta Data, and Multiple Tickers. [1, https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library]
 
 It can be installed using _pip install yfinance_.
-#### pandas/dataframe
-#### Working with Dates and Times
+
+The Python Packages required for Problem 1 and their use is as follows:
+- yfinance is used to access historical financial data directly from Yahoo Finance using its public API.
+- pandas  are used to manipulate and export the downloaded data into a .csv (comma-separated values) file.
+- datetime creates a timestamp for the file. This allows the file to be created with the required YYYYMMDD-HHmmss.csv format.
+- os check the repository to see if the data/ folder exists and create it if necessary.
 
 ## Solving Problems
 All solutions, code etc. can be found in the Jupyter Notebook [problems.ipynb](https://github.com/philipcullen93/computer-infrastructure-assessment/blob/main/problems.ipynb)
