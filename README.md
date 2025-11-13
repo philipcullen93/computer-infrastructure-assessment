@@ -58,8 +58,12 @@ Breaking the problem down into steps, here is what I decided were the key object
 3. Save a timestamped CSV file in the format YYYYMMDD-HHmmss.csv
 
 # References
-1 - yFinance Background Information: https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library
+1 - yFinance Background Information: (https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library)
+
 2 - Yahoo Finance (data source): (https://finance.yahoo.com/)
-3 - yfinance Documentation: (https://pypi.org/project/yfinance/)  
+
+3 - yfinance Documentation: (https://pypi.org/project/yfinance/)
+
 4 - pandas Official Docs: (https://pandas.pydata.org/docs/)  
+
 5 - Python Standard Library (datetime & os): (https://docs.python.org/3/library/)
