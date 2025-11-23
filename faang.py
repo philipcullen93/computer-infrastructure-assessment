@@ -1,13 +1,22 @@
 #!/usr/bin/env python3
 
+"""
+# faang.py
+# A terminal-run script that:
+# 1. Downloads the latest 5-day hourly FAANG stock data.
+# 2. Saves it into the data/ folder using a timestamped filename.
+# 3. Plots the Close prices and saves the plot into the plots/ folder.
+"""
+
 import os
 import datetime as dt
 import pandas as pd
 import matplotlib.pyplot as plt
 import yfinance as yf
 
+# Download FAANG stock data (last 5 days, hourly) and save to /data as timestamped CSV.
 def download_data():
-    """Download FAANG stock data (last 5 days, hourly) and save to /data as timestamped CSV."""
+    
     os.makedirs("data", exist_ok=True)
 
     tickers = ["META", "AAPL", "AMZN", "NFLX", "GOOG"]
@@ -24,9 +33,9 @@ def download_data():
     print(f"Saved data to: {filename}")
     return filename
 
-
+# Load the latest CSV and plot the Close prices.
 def plot_data():
-    """Load the latest CSV and plot the Close prices."""
+    
     os.makedirs("plots", exist_ok=True)
 
     files = [f for f in os.listdir("data") if f.endswith(".csv")]
@@ -59,11 +68,11 @@ def plot_data():
 
     print(f"Plot saved to: {plot_filename}")
 
-
+# Runs the workflow: Downloads data and immediately plots it
 def main():
     download_data()
     plot_data()
 
-
+# Script entry point
 if __name__ == "__main__":
     main()
