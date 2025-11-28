@@ -31,8 +31,8 @@ jobs:
 
       - name: Commit and push output files
         run: |
-          git config --global philipcullen93 "github-actions"
-          git config --global philipcullen93@gmail.com "github-actions@github.com"
+          git config --global user.name "philipcullen93"
+          git config --global user.email "philipcullen93@gmail.com"
           git add data/ plots/
           git commit -m "Daily FAANG update" || echo "No changes to commit"
           git push
