@@ -2,55 +2,38 @@ name: Run FAANG Script Daily
 
 on:
   schedule:
-    - cron: "0 7 * * *"   # Every morning at 07:00 UTC
-  workflow_dispatch:       # Allows manual run from the Actions tab
+    - cron: "0 7 * * *"     # Runs every morning at 07:00 UTC (for testing)
+  workflow_dispatch:        # Allows manual run from the Actions tab
 
 jobs:
   run-faang:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           pip install yfinance pandas matplotlib
 
-      # Step 4: Run FAANG script
       - name: Run FAANG script
         run: |
           chmod +x faang.py
           ./faang.py
 
-      # Step 5: Commit and push new files
-      - name: Commit and push output files
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "github-actions@github.com"
-          git add data/ plots/
-          git commit -m "Daily FAANG update" || echo "No changes to commit"
-          git push
-
-      # Step 6: Upload CSV artifact
-      - name: Upload CSV output (artifact)
+      - name: Upload CSV output
         uses: actions/upload-artifact@v4
         with:
           name: faang-csv
           path: data/*.csv
 
-      # Step 7: Upload plot artifact
-      - name: Upload plot output (artifact)
+      - name: Upload plot output
         uses: actions/upload-artifact@v4
         with:
           name: faang-plot
