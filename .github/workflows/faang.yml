@@ -26,3 +26,15 @@ jobs:
         run: |
           chmod +x faang.py
           ./faang.py
+
+      - name: Upload CSV output
+        uses: actions/upload-artifact@v4
+        with:
+          name: faang-csv
+          path: data/*.csv
+
+      - name: Upload plot output
+        uses: actions/upload-artifact@v4
+        with:
+          name: faang-plot
+          path: plots/*.png
