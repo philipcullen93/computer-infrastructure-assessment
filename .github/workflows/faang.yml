@@ -2,8 +2,8 @@ name: Run FAANG Script Daily
 
 on:
   schedule:
-    - cron: "0 7 * * *"     # Runs every morning at 07:00 UTC (for testing)
-  workflow_dispatch:        # Allows manual run from the Actions tab
+    - cron: "0 7 * * *"     # Every morning at 07:00 UTC
+  workflow_dispatch:        # Manual run allowed
 
 jobs:
   run-faang:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,13 +29,21 @@ jobs:
           chmod +x faang.py
           ./faang.py
 
-      - name: Upload CSV output
+      - name: Commit and push output files
+        run: |
+          git config --global philipcullen93 "github-actions"
+          git config --global philipcullen93@gmail.com "github-actions@github.com"
+          git add data/ plots/
+          git commit -m "Daily FAANG update" || echo "No changes to commit"
+          git push
+
+      - name: Upload CSV output (artifact)
         uses: actions/upload-artifact@v4
         with:
           name: faang-csv
           path: data/*.csv
 
-      - name: Upload plot output
+      - name: Upload plot output (artifact)
         uses: actions/upload-artifact@v4
         with:
           name: faang-plot
