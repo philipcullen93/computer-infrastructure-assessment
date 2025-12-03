@@ -1,53 +1,73 @@
-name: Run FAANG Script Every Saturday   # Name of the workflow as it appears in GitHub Actions
+name: Run FAANG Script Every Saturday
 
+# --------------------------------------------------
+# Trigger:
+#   - schedule: Runs every Saturday at 07:00 UTC
+#   - workflow_dispatch: Allows manual run
+# --------------------------------------------------
 on:
   schedule:
-    - cron: "0 7 * * 6"         # Runs every Saturday at 07:00 UTC
-                                # Cron format: min hour day month day-of-week
-                                # Saturday = 6
-  workflow_dispatch:            # Allows you to run it manually from the Actions tab in GitHub
+    - cron: "0 7 * * 6"     # 6 = Saturday (0=Sun, 6=Sat)
+  workflow_dispatch:
 
 jobs:
   run-faang:
-    runs-on: ubuntu-latest      # Uses the latest Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
+
+      # --------------------------------------------------
+      # Step 1 — Checkout repo so workflow can access files
+      # --------------------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
-        # Pulls your repository files into the runner's workspace
 
+      # --------------------------------------------------
+      # Step 2 — Install Python
+      # --------------------------------------------------
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-        # Installs Python 3.10 on the runner
 
+      # --------------------------------------------------
+      # Step 3 — Install Python dependencies
+      # --------------------------------------------------
       - name: Install dependencies
         run: |
+          echo "Installing Python dependencies..."
           pip install yfinance pandas matplotlib
-        # Installs Python packages needed by your FAANG script
-        # - yfinance: for stock data
-        # - pandas: for data handling
-        # - matplotlib: for charts
 
-      - name: Run FAANG script & print output
+      # --------------------------------------------------
+      # Step 4 — Run FAANG script (with echo = print)
+      # --------------------------------------------------
+      - name: Run FAANG script
         run: |
-          echo "Running FAANG script..."
-          chmod +x faang.py     # Makes the script executable (not strictly required)
-          python faang.py       # Runs your script and prints output to the Actions log
-        # Using "python faang.py" ensures all print() output shows in the logs
+          echo "----------------------------------------"
+          echo "Starting FAANG script run"
+          echo "Time: $(date)"
+          echo "----------------------------------------"
+          chmod +x faang.py
+          ./faang.py
+          echo "----------------------------------------"
+          echo "FAANG script completed successfully!"
+          echo "Output saved to data/ and plots/ folders"
+          echo "----------------------------------------"
 
+      # --------------------------------------------------
+      # Step 5 — Upload CSV outputs as artifacts
+      # --------------------------------------------------
       - name: Upload CSV output
         uses: actions/upload-artifact@v4
         with:
           name: faang-csv
           path: data/*.csv
-        # Uploads any CSV files your script saves in the /data folder
-        # You can download these from the workflow run afterwards
 
+      # --------------------------------------------------
+      # Step 6 — Upload plot output as artifacts
+      # --------------------------------------------------
       - name: Upload plot output
         uses: actions/upload-artifact@v4
         with:
           name: faang-plot
           path: plots/*.png
-        # Uploads all PNG figures generated in the /plots folder
