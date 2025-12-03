@@ -1,40 +1,53 @@
-name: Run FAANG Script Daily
+name: Run FAANG Script Every Saturday   # Name of the workflow as it appears in GitHub Actions
 
 on:
   schedule:
-    - cron: "0 7 * * *"     # Runs every morning at 07:00 UTC (for testing)
-  workflow_dispatch:        # Allows manual run from the Actions tab
+    - cron: "0 7 * * 6"         # Runs every Saturday at 07:00 UTC
+                                # Cron format: min hour day month day-of-week
+                                # Saturday = 6
+  workflow_dispatch:            # Allows you to run it manually from the Actions tab in GitHub
 
 jobs:
   run-faang:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest      # Uses the latest Ubuntu runner
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        # Pulls your repository files into the runner's workspace
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+        # Installs Python 3.10 on the runner
 
       - name: Install dependencies
         run: |
           pip install yfinance pandas matplotlib
+        # Installs Python packages needed by your FAANG script
+        # - yfinance: for stock data
+        # - pandas: for data handling
+        # - matplotlib: for charts
 
-      - name: Run FAANG script
+      - name: Run FAANG script & print output
         run: |
-          chmod +x faang.py
-          ./faang.py
+          echo "Running FAANG script..."
+          chmod +x faang.py     # Makes the script executable (not strictly required)
+          python faang.py       # Runs your script and prints output to the Actions log
+        # Using "python faang.py" ensures all print() output shows in the logs
 
       - name: Upload CSV output
         uses: actions/upload-artifact@v4
         with:
           name: faang-csv
           path: data/*.csv
+        # Uploads any CSV files your script saves in the /data folder
+        # You can download these from the workflow run afterwards
 
       - name: Upload plot output
         uses: actions/upload-artifact@v4
         with:
           name: faang-plot
           path: plots/*.png
+        # Uploads all PNG figures generated in the /plots folder
