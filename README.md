@@ -30,9 +30,6 @@ Create a Python script called faang.py in the root of your repository. Copy the 
 ### Problem 4: Automation
 Create a GitHub Actions workflow to run your script every Saturday morning. The script should be called faang.yml in a .github/workflows/ folder in the root of your repository. In your notebook, explain each of the individual lines in your workflow.
 
-## Tools, Python Packages and Background Knowledge Required
-This section discusses the background information, Python Packages and Tools required for solving the problems. 
-
 ## Overview
 This repository contains the solution to a multi-part Python assignment focused on downloading, visualising, and automating financial market data for major technology stocks using yfinance, pandas, and GitHub Actions.
 
