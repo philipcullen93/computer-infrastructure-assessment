@@ -41,12 +41,19 @@ All code, explanations, and outputs are contained within this repository.
 ### Repository Structure
 .
 ├── data/ # CSV files containing downloaded stock data
+
 ├── plots/ # Generated price comparison plots
+
 ├── .github/
+
 │ └── workflows/
+
 │ └── faang.yml # GitHub Actions workflow for automation
+
 ├── faang.py # Executable script to download and plot data
+
 ├── problems.ipynb # Jupyter Notebook with solutions and explanations
+
 └── README.md # Project documentation (this file)
 
 ## How to Run Locally
@@ -70,7 +77,7 @@ YFinance is a Python Library which allows access to financial data from Yahoo Fi
 
 It can be installed using _pip install yfinance_.
 
-### - Tools and Technologies
+### Tools and Technologies
 The following tools and technologies were used for this project:
 - Python 3 was the core programming language
 - yfinance was used to access historical financial data directly from Yahoo Finance using its public API [1] [2] [3].
