@@ -9,29 +9,18 @@ The learning outcomes are:
 3. Compare commonly available software infrastructures and architectures.
 4. Select appropriate infrastructure for a given computational task.
 
-## Problems
-Below is a list of the 4 problems to complete with their descriptions.
-### Problem 1: Data from yfinance
-Using the yfinance Python package, write a function called get_data() that downloads all hourly data for the previous five days for the five FAANG stocks:
-
-Facebook (META)
-Apple (AAPL)
-Amazon (AMZN)
-Netflix (NFLX)
-Google (GOOG)
-The function should save the data into a folder called data in the root of your repository using a filename with the format YYYYMMDD-HHmmss.csv where YYYYMMDD is the four-digit year (e.g. 2025), followed by the two-digit month (e.g. 09 for September), followed by the two digit day, and HHmmss is hour, minutes, seconds. Create the data folder if you don't already have one.
-
-### Problem 2: Plotting Data
-Write a function called plot_data() that opens the latest data file in the data folder and, on one plot, plots the Close prices for each of the five stocks. The plot should include axis labels, a legend, and the date as a title. The function should save the plot into a plots folder in the root of your repository using a filename in the format YYYYMMDD-HHmmss.png. Create the plots folder if you don't already have one.
-
-### Problem 3: Script
-Create a Python script called faang.py in the root of your repository. Copy the above functions into it and it so that whenever someone at the terminal types ./faang.py, the script runs, downloading the data and creating the plot. Note that this will require a shebang line and the script to be marked executable. Explain the steps you took in your notebook.
-
-### Problem 4: Automation
-Create a GitHub Actions workflow to run your script every Saturday morning. The script should be called faang.yml in a .github/workflows/ folder in the root of your repository. In your notebook, explain each of the individual lines in your workflow.
-
 ## Overview
-This repository contains the solution to a multi-part Python assignment focused on downloading, visualising, and automating financial market data for major technology stocks using yfinance, pandas, and GitHub Actions.
+This repository contains the solution to a multi-part Python assignment focused on downloading, visualising, and automating financial market data for major technology stocks using yfinance, pandas, and GitHub Actions. 
+
+The purpose of the project is not only to produce correct outputs, but to demonstrate:
+
+1. Clear problem decomposition and solution design
+
+2. Research-driven use of third-party libraries
+
+3. Reproducible and automated data workflows
+
+4. Professional repository organisation and documentation
 
 The project downloads recent hourly stock price data for the five FAANG companies, plots their closing prices, and automates the entire process to run weekly.
 
@@ -81,12 +70,24 @@ YFinance is a Python Library which allows access to financial data from Yahoo Fi
 
 It can be installed using _pip install yfinance_.
 
-### Python Packages
-The Python Packages required: 
-- yfinance is used to access historical financial data directly from Yahoo Finance using its public API [2][3].
-- pandas  are used to manipulate and export the downloaded data into a .csv (comma-separated values) file [4].
+### - Tools and Technologies
+The following tools and technologies were used for this project:
+- Python 3 was the core programming language
+- yfinance was used to access historical financial data directly from Yahoo Finance using its public API [1] [2] [3].
+- pandas were used to manipulate and export the downloaded data into a .csv (comma-separated values) file [4].
 - datetime creates a timestamp for the file. This allows the file to be created with the required YYYYMMDD-HHmmss.csv format [5]. 
 - os check the repository to see if the data/ folder exists and create it if necessary [5].
+- matplotlib was used for financial data visualisation [6].
+- GitHub Actions was used for workflow automation and scheduling [7].
+- Jupyter Notebook was used for narrative explanation, analysis, and reflection [8].
+
+These tools were selected based on their widespread use in industry and strong documentation support, making the project both practical and academically grounded.
+
+### Assumptions and Design Decisions
+- Hourly data was selected to balance data granularity with file size and API reliability.
+- The most recent CSV file is determined using file timestamps rather than filenames alone to ensure robustness.
+- All directories (data/, plots/) are created dynamically to allow the repository to run cleanly in new environments, including GitHub Actions.
+- The script is designed to be idempotent, meaning it can be run multiple times without overwriting previous outputs.
 
 ## Solving Problems
 All solutions, code etc. can be found in the Jupyter Notebook [problems.ipynb](https://github.com/philipcullen93/computer-infrastructure-assessment/blob/main/problems.ipynb)
@@ -164,13 +165,41 @@ The workflow:
 
 Each line of the workflow file is explained in detail in the Jupyter Notebook.
 
+### Error Handling and Limitations
+- If Yahoo Finance is temporarily unavailable, the script may fail during data download.
+- No retry or backoff mechanism is currently implemented.
+- Market holidays may result in fewer data points than expected for a given five-day window.
+- The workflow assumes GitHub-hosted runners with Python preinstalled.
+
 # References
-1 - yFinance Background Information: (https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library)
+1. yFinance Background Information:  
+   https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library/
 
-2 - Yahoo Finance (data source): (https://finance.yahoo.com/)
+2. Yahoo Finance (Data Source):  
+   https://finance.yahoo.com/
 
-3 - yfinance Documentation: (https://pypi.org/project/yfinance/)
+3. yfinance Documentation:  
+   https://pypi.org/project/yfinance/
 
-4 - pandas Official Docs: (https://pandas.pydata.org/docs/)  
+4. pandas Official Documentation:  
+   https://pandas.pydata.org/docs/
 
-5 - Python Standard Library (datetime & os): (https://docs.python.org/3/library/)
+5. Python Standard Library Documentation (datetime, os):  
+   https://docs.python.org/3/library/
+
+6. matplotlib Documentation:  
+   https://matplotlib.org/stable/users/index.html
+
+7. GitHub Actions Documentation:  
+   https://docs.github.com/en/actions
+
+8. Jupyter Notebook Documentation:  
+   https://docs.jupyter.org/en/latest/
+
+
+
+
+
+
+
+
