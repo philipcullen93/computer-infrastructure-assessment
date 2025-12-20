@@ -54,7 +54,7 @@ All code, explanations, and outputs are contained within this repository.
 
 ├── problems.ipynb # Jupyter Notebook with solutions and explanations
 
-└── README.md # Project documentation (this file)
+└── README.md # Project documentation
 
 ## How to Run Locally
 
