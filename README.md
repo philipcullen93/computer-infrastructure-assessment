@@ -179,6 +179,8 @@ Each line of the workflow file is explained in detail in the Jupyter Notebook.
 - The workflow assumes GitHub-hosted runners with Python preinstalled.
 
 # References
+The following references were used in the README.md file.
+
 1. yFinance Background Information:  
    https://www.geeksforgeeks.org/machine-learning/what-is-yfinance-library/
 
@@ -203,6 +205,38 @@ Each line of the workflow file is explained in detail in the Jupyter Notebook.
 8. Jupyter Notebook Documentation:  
    https://docs.jupyter.org/en/latest/
 
+# References (Code)
+The following references were used in writing the programs:
+
+1. yfinance Documentation: https://pypi.org/project/yfinance/
+
+2. pandas Official Documents: https://pandas.pydata.org/docs/
+
+3. Python Standard Library (datetime & os): https://docs.python.org/3/library/
+
+4. Yahoo Finance (data source): https://finance.yahoo.com/
+
+5. GNU Core Utilities – File Permissions and chmod: https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html
+
+6. Python Documentation – __main__ and Program Structure: https://docs.python.org/3/library/__main__.html
+
+7. Python Documentation – Shebang Lines and Executable Scripts: https://docs.python.org/3/using/unix.html#executable-python-scripts
+
+8. Python Documentation – datetime Module: https://docs.python.org/3/library/datetime.html
+
+9. GitHub Actions Documentation: https://docs.github.com/en/actions
+
+10. GitHub Actions – Events That Trigger Workflows: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+
+11. GitHub Actions – GitHub-hosted Runners: https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+
+12. actions/checkout Documentation: https://github.com/actions/checkout
+
+13. actions/setup-python Documentation: https://github.com/actions/setup-python
+
+14. Python Packaging User Guide – pip: https://packaging.python.org/en/latest/tutorials/installing-packages/
+
+15. actions/upload-artifact Documentation: https://github.com/actions/upload-artifact1. yfinance Documentation: https://pypi.org/project/yfinance/
 
 
 
